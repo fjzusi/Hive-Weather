@@ -15,7 +15,8 @@ app.controller('searchController',
 			geoLookupService
 			.geolookupAutoComplete(q)
 			.then(function (data) {
-				console.log(data.RESULTS.length);
+				var results = data.RESULTS.map(function(a){return a.name});
+				asyn(results);
 			});
 		};
 
