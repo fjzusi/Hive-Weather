@@ -28,8 +28,31 @@ layout: null
 	</head>
 	<body ng-app="hive-weather">
 		<div class="container">
-			<h1>Hello World</h1>
+			<nav ng-controller="searchController" class="navbar navbar-default navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="/Hive-Weather/">
+							<img alt="Hive Weather" class="brand-image" src="/Hive-Weather/img/icon/icon.svg" />
+							Hive Weather
+						</a>
+					</div>
+					<div class="navbar-form navbar-right">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="City or Zip" ng-model="searchTerm">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-default" ng-click="search()"><span class="glyphicon glyphicon-search"></span></button>
+							</span>
+						</div>
+						<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Automatically use your current location" ng-click="searchAuto()">Auto</button>
+					</div>
+				</div>
+			</nav>
+
+			<div class="main-view" ng-controller="mainController">
+				<h1>Hello World</h1>
+			</div>
 		</div>
+
 		<footer>
 			<div class="container">
 				<div class="pull-right">
@@ -47,5 +70,8 @@ layout: null
 
 		<script type="text/javascript" src="/Hive-Weather/js/services/geolookupService.js"></script>
 		<script type="text/javascript" src="/Hive-Weather/js/services/conditionsService.js"></script>
+
+		<script type="text/javascript" src="/Hive-Weather/js/controllers/mainController.js"></script>
+		<script type="text/javascript" src="/Hive-Weather/js/controllers/searchController.js"></script>
 	</body>
 </html>
