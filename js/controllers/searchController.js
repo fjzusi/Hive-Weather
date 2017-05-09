@@ -11,20 +11,21 @@ app.controller('searchController',
 			alert("Auto searching");
 		};
 
-		$scope.onSearchTermChange = function() {
-			clearTimeout($scope.searchTimeout);
-			$scope.searchTimeout = setTimeout($scope.searchTermAutoComplete, 1000);
+		$scope.searchAutoComplete = function(q, syn, asyn) {
+			geoLookupService
+			.geolookupAutoComplete(q)
+			.then(function (data) {
+				console.log(data.RESULTS.length);
+			});
 		};
 
-		$scope.searchTermAutoComplete = function(){
-			// $("#txtSearch").typeahead({
-			// 	hint: true,
-			// 	highlight: true,
-			// 	minLength: 3
-			// },
-			// {
-			// 	source:
-			// });
-		}
+		$("#txtSearch").typeahead({
+			hint: true,
+			highlight: true,
+			minLength: 3
+		},
+		{
+			source: $scope.searchAutoComplete
+		});
 	}]
 );

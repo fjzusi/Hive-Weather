@@ -3,7 +3,7 @@ app.service("conditionsService", ['$rootScope', '$http', 'apiUrl', conditionsSer
 function conditionsService($rootScope, $http, apiUrl) {
     this.conditionsByPostalCode = function(postalCode) {
         return $http
-			.get(apiUrl + '/conditions/q/' + postalCode + '.json')
+			.get(apiUrl + 'conditions/q/' + postalCode + '.json')
 			.then(function (response) {
 				return response.data;
 			});
@@ -11,7 +11,7 @@ function conditionsService($rootScope, $http, apiUrl) {
 
     this.conditionsByCityState = function(city, state) {
         return $http
-			.get(apiUrl + '/conditions/q/' + city + '/' + state + '.json')
+			.get(apiUrl + 'conditions/q/' + city + '/' + state + '.json')
 			.then(function (response) {
 				return response.data;
 			});
