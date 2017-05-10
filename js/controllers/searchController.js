@@ -1,6 +1,6 @@
 app.controller('searchController',
-	['$scope', '$location', 'geoLookupService', 'conditionsService',
-	function ($scope, $location, geoLookupService, conditionsService) {
+	['$scope', '$location', '$filter', 'geoLookupService', 'conditionsService',
+	function ($scope, $location, $filter, geoLookupService, conditionsService) {
 		$scope.searchTerm = "";
 
 		$scope.search = function() {
@@ -11,22 +11,13 @@ app.controller('searchController',
 			alert("Auto searching");
 		};
 
-		$scope.searchAutoComplete = function(q, syn, asyn) {
-			geoLookupService
+		$scope.searchAutoComplete = function(q) {
+			return geoLookupService
 			.geolookupAutoComplete(q)
 			.then(function (data) {
 				var results = data.RESULTS.map(function(a){return a.name});
-				asyn(results);
+				return $filter('limitTo')(results, 5);
 			});
 		};
-
-		$("#txtSearch").typeahead({
-			hint: true,
-			highlight: true,
-			minLength: 3
-		},
-		{
-			source: $scope.searchAutoComplete
-		});
 	}]
 );
