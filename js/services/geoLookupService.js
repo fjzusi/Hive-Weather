@@ -1,7 +1,7 @@
 app.service("geoLookupService", ['$rootScope', '$http', 'apiUrl', 'autoCompleteUrl', geoLookupService])
 
 function geoLookupService($rootScope, $http, apiUrl, autoCompleteUrl) {
-    this.geolookupAuto = function(postalCode) {
+    this.geolookupAuto = function() {
         return $http
 			.get(apiUrl + 'geolookup/q/autoip.json')
 			.then(function (response) {

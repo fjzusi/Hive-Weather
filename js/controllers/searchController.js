@@ -8,7 +8,11 @@ app.controller('searchController',
 		};
 
 		$scope.searchAuto = function() {
-			alert("Auto searching");
+			geoLookupService
+			.geolookupAuto()
+			.then(function (data){
+				console.log(data);
+			});
 		};
 
 		$scope.searchAutoComplete = function(q) {
