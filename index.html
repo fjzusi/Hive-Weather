@@ -28,32 +28,9 @@ layout: null
 	</head>
 	<body ng-app="hive-weather">
 		<div class="container">
-			<nav ng-controller="searchController" class="navbar navbar-default navbar-fixed-top">
-				<div class="container">
-					<div class="navbar-header">
-						<a class="navbar-brand" href="/Hive-Weather/">
-							<img alt="Hive Weather" class="brand-image" src="/Hive-Weather/img/icon/icon.svg" />
-							Hive Weather
-						</a>
-					</div>
-					<form class="navbar-form navbar-right" ng-submit="search()">
-						<input type="text" class="form-control" ng-model="searchTerm" uib-typeahead="location as location.name for location in searchAutoComplete($viewValue)" typeahead-min-length="3" typeahead-wait-ms="1000">
-						<div class="btn-group">
-							<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-							<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Automatically use your current location" ng-click="searchAuto()">Auto</button>
-						</div>
-					</form>
-				</div>
-			</nav>
+			{% include search.html %}
 
-			<div class="main-view">
-				<div class="ng-cloak" ng-show="conditionObject">
-					Location: [[conditionObject.display_location.city]], [[conditionObject.display_location.state]]<br />
-					Condition: [[conditionObject.weather]]<br />
-					Temperature: [[conditionObject.temperature_string]]<br />
-					Local Time: [[conditionObject.local_time_rfc822]]
-				</div>
-			</div>
+			{% include main.html %}
 		</div>
 
 		<footer>
