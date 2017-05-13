@@ -2,12 +2,16 @@
     angular
         .module('hive-weather')
         .config(['$sceDelegateProvider', delegateProvider])
+        .config(['$interpolateProvider', interpolateProvider]);
 
     function delegateProvider ($sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist([
             'self',
-            'http://api.wunderground.com/api/d5cc774a45c7794d/**',
             'http://autocomplete.wunderground.com/**'
         ]);
+    }
+
+    function interpolateProvider($interpolateProvider) {
+        return $interpolateProvider.startSymbol('[[').endSymbol(']]');
     }
 })()
