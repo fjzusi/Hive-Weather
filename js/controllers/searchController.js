@@ -5,13 +5,13 @@ app.controller('searchController',
 
 		$scope.search = function() {
 			if($scope.searchTerm.name) {
-				conditionsService.setConditions($scope.searchTerm.name, $scope.searchTerm.l);
+				conditionsService.setConditions($scope.searchTerm.l);
 			} else{
 				geoLookupService
 				.geolookupAutoComplete($scope.searchTerm)
 				.then(function (data) {
 					var result = data.RESULTS[0];
-					conditionsService.setConditions(result.name, result.l);
+					conditionsService.setConditions(result.l);
 				});
 			}
 		};
@@ -20,8 +20,7 @@ app.controller('searchController',
 			geoLookupService
 			.geolookupAuto()
 			.then(function (data){
-				console.log(data);
-				conditionsService.setConditions(data.location.city + ", " + data.location.state, data.location.l);
+				conditionsService.setConditions(data.location.l);
 			});
 		};
 

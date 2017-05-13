@@ -1,14 +1,8 @@
 app.service("conditionsService", ['$rootScope', '$http', 'apiUrl', conditionsService])
 
 function conditionsService($rootScope, $http, apiUrl) {
-    $rootScope.conditionLabel = "Stafford Springs, Connecticut";
-    $rootScope.conditionLink = "";
-    $rootScope.conditionObject = null;
-
-    this.setConditions = function(name, link) {
-        $rootScope.conditionLabel = name;
-        $rootScope.conditionLink = link;
-        $rootScope.conditionObject = {};
+    this.setConditions = function(link) {
+        $rootScope.conditionObject = null;
 
         if(link) {
             $http
