@@ -3,7 +3,7 @@ app.service("conditionsService", ['$rootScope', '$http', 'apiUrl', conditionsSer
 function conditionsService($rootScope, $http, apiUrl) {
     $rootScope.conditionLabel = "Stafford Springs, Connecticut";
     $rootScope.conditionLink = "";
-    $rootScope.conditionObject = {};
+    $rootScope.conditionObject = null;
 
     this.setConditions = function(name, link) {
         $rootScope.conditionLabel = name;
@@ -14,6 +14,7 @@ function conditionsService($rootScope, $http, apiUrl) {
             $http
             .get(apiUrl + 'conditions' + link + '.json')
             .then(function (response) {
+                console.log(response.data.current_observation);
                 $rootScope.conditionObject = response.data.current_observation;
             });
         }

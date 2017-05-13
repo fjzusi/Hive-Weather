@@ -20,7 +20,8 @@ app.controller('searchController',
 			geoLookupService
 			.geolookupAuto()
 			.then(function (data){
-				conditionsService.setConditions(data.city + ", " + data.state, data.l);
+				console.log(data);
+				conditionsService.setConditions(data.location.city + ", " + data.location.state, data.location.l);
 			});
 		};
 

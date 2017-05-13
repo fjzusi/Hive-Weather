@@ -44,9 +44,11 @@
 			</nav>
 
 			<div class="main-view">
-				<div class="conditionLabel" ng-bind="conditionLabel"></div>
-				<div>
-
+				<div class="ng-cloak" ng-show="conditionObject">
+					Location: {{conditionObject.display_location.city}}, {{conditionObject.display_location.state}}<br />
+					Condition: {{conditionObject.weather}}<br />
+					Temperature: {{conditionObject.temperature_string}}<br />
+					Local Time: {{conditionObject.local_time_rfc822}}
 				</div>
 			</div>
 		</div>
