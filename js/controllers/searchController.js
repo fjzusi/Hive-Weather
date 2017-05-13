@@ -4,14 +4,23 @@ app.controller('searchController',
 		$scope.searchTerm = "";
 
 		$scope.search = function() {
-			alert($scope.searchTerm);
+			if($scope.searchTerm.name) {
+				conditionsService.setConditions($scope.searchTerm.name, $scope.searchTerm.l);
+			} else{
+				geoLookupService
+				.geolookupAutoComplete($scope.searchTerm)
+				.then(function (data) {
+					var result = data.RESULTS[0];
+					conditionsService.setConditions(result.name, result.l);
+				});
+			}
 		};
 
 		$scope.searchAuto = function() {
 			geoLookupService
 			.geolookupAuto()
 			.then(function (data){
-				console.log(data);
+				conditionsService.setConditions(data.city + ", " + data.state, data.l);
 			});
 		};
 
@@ -19,8 +28,7 @@ app.controller('searchController',
 			return geoLookupService
 			.geolookupAutoComplete(q)
 			.then(function (data) {
-				var results = data.RESULTS.map(function(a){return a.name});
-				return $filter('limitTo')(results, 5);
+				return $filter('limitTo')(data.RESULTS, 5);
 			});
 		};
 	}]

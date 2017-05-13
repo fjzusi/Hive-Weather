@@ -1,26 +1,21 @@
 app.service("conditionsService", ['$rootScope', '$http', 'apiUrl', conditionsService])
 
 function conditionsService($rootScope, $http, apiUrl) {
-    $rootScope.city = "";
-    $rootScope.state = "";
-    $rootScope.country = "";
-    $rootScope.postalCode = "";
-    $rootScope.weatherLink = "";
-    $rootScope.condition = "";
+    $rootScope.conditionLabel = "Stafford Springs, Connecticut";
+    $rootScope.conditionLink = "";
+    $rootScope.conditionObject = {};
 
-    this.conditionsByPostalCode = function(postalCode) {
-        return $http
-			.get(apiUrl + 'conditions/q/' + postalCode + '.json')
-			.then(function (response) {
-				return response.data;
-			});
-    };
+    this.setConditions = function(name, link) {
+        $rootScope.conditionLabel = name;
+        $rootScope.conditionLink = link;
+        $rootScope.conditionObject = {};
 
-    this.conditionsByCityState = function(city, state) {
-        return $http
-			.get(apiUrl + 'conditions/q/' + city + '/' + state + '.json')
-			.then(function (response) {
-				return response.data;
-			});
-    };
+        if(link) {
+            $http
+            .get(apiUrl + 'conditions' + link + '.json')
+            .then(function (response) {
+                $rootScope.conditionObject = response.data.current_observation;
+            });
+        }
+    }
 }
