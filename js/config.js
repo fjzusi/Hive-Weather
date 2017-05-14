@@ -7,7 +7,7 @@
     function delegateProvider ($sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist([
             'self',
-            'http://autocomplete.wunderground.com/**'
+            'https://autocomplete.wunderground.com/**'
         ]);
     }
 
