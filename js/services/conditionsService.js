@@ -5,8 +5,8 @@ function conditionsService($rootScope, $http, apiUrl) {
         "display_location": {"city": "Somewhere", "state": "Someplace"},
         "temperature_string": "10000 F",
         "local_time_rfc822": "600 Hours",
-        
-        "weather": "Light Drizzle"
+
+        "weather": "Drizzle"
     };
 
     this.setConditions = function(link) {
@@ -18,6 +18,10 @@ function conditionsService($rootScope, $http, apiUrl) {
             .then(function (response) {
                 console.log(response.data.current_observation);
                 $rootScope.conditionObject = response.data.current_observation;
+
+                if($rootScope.conditionObject.weather.startsWith("Light") || $rootScope.conditionObject.weather.startsWith("Heavy")) {
+                    $rootScope.conditionObject.weather = $rootScope.conditionObject.weather.substring(6);
+                }
             });
         }
     }
