@@ -1,11 +1,7 @@
 <div class="main-view">
     <div class="ng-cloak" ng-show="conditionObject">
         <div class="condition-container" ng-switch on="conditionObject.weather">
-            <div ng-switch-when="Drizzle"><div class="cloud"></div>
-  <div class="sun">
-    <div class="rays"></div>
-  </div>
-  <div class="rain"></div></div>
+            <div ng-switch-when="Drizzle">Drizzle</div>
             <div ng-switch-when="Rain">Rain</div>
             <div ng-switch-when="Snow">Snow</div>
             <div ng-switch-when="Snow Grains">Snow Grains</div>
