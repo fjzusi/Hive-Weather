@@ -11,7 +11,12 @@ app.controller('searchController',
 				.geolookupAutoComplete($scope.searchTerm)
 				.then(function (data) {
 					var result = data.RESULTS[0];
-					conditionsService.setConditions(result.l);
+					if(result) {
+						conditionsService.setConditions(result.l);
+					} else {
+						conditionsService.setUnknownCondition();
+					}
+
 				});
 			}
 		};

@@ -1,13 +1,10 @@
 app.service("conditionsService", ['$rootScope', '$http', 'apiUrl', conditionsService])
 
 function conditionsService($rootScope, $http, apiUrl) {
-    $rootScope.conditionObject = {
-        "display_location": {"city": "Somewhere", "state": "Someplace"},
-        "temperature_string": "10000 F",
-        "local_time_rfc822": "600 Hours",
-
-        "weather": "asdfasdf"
+    $rootScope.unknownCondition = {
+        "weather": "unknown"
     };
+    $rootScope.conditionObject = $rootScope.unknownCondition;
 
     this.setConditions = function(link) {
         $rootScope.conditionObject = null;
@@ -24,5 +21,9 @@ function conditionsService($rootScope, $http, apiUrl) {
                 }
             });
         }
+    }
+
+    this.setUnknownCondition = function() {
+        $rootScope.conditionObject = $rootScope.unknownCondition;
     }
 }
