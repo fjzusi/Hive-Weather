@@ -1,20 +1,24 @@
-<nav ng-controller="searchController" class="container">
-    <form class="pull-right" ng-submit="search()">
-        <input type="text"
-            class="form-control"
-            ng-model="searchTerm"
-            uib-typeahead="location as location.name for location in searchAutoComplete($viewValue)"
-            typeahead-min-length="3"
-            typeahead-wait-ms="1000"
-            typeahead-no-results="noResults">
-        <span ng-if="noResults" auto-close="disabled" is-open="true" uib-dropdown uib-dropdown-toggle>
-            <ul class="weather-results dropdown-menu">
-                <li><a href><i class="glyphicon glyphicon-remove"></i> No Results</a></li>
-            </ul>
-        </span>
-        <div class="btn-group">
-            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Automatically use your current location" ng-click="searchAuto()">Auto</button>
-        </div>
-    </form>
+<nav ng-controller="searchController" class="container main-nav">
+    <div class="row">
+        <form ng-submit="search()">
+            <div class="input-group">
+                <input type="text"
+                    class="form-control"
+                    ng-model="searchTerm"
+                    uib-typeahead="location as location.name for location in searchAutoComplete($viewValue)"
+                    typeahead-min-length="3"
+                    typeahead-wait-ms="1000"
+                    typeahead-no-results="noResults">
+                <span ng-if="noResults" auto-close="disabled" is-open="true" uib-dropdown uib-dropdown-toggle>
+                    <ul class="weather-results dropdown-menu">
+                        <li><a href><i class="glyphicon glyphicon-remove"></i> No Results</a></li>
+                    </ul>
+                </span>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Automatically use your current location" ng-click="searchAuto()">Auto</button>
+                </span>
+            </div>
+        </form>
+    </div>
 </nav>
