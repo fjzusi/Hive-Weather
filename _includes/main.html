@@ -1,10 +1,8 @@
 <div class="main-view">
     <div class="ng-cloak" ng-show="conditionObject">
         <div class="condition-container" ng-switch on="conditionObject.weather">
-            <div ng-switch-when="Drizzle">Drizzle</div>
-            <div ng-switch-when="Rain">Rain</div>
-            <div ng-switch-when="Snow">Snow</div>
-            <div ng-switch-when="Snow Grains">Snow Grains</div>
+            <div ng-switch-when="Drizzle|Rain|Rain Showers|Freezing Rain" ng-switch-when-separator="|" class="icon rainy"><div class="cloud"></div><div class="rain"></div></div>
+            <div ng-switch-when="Snow|Snow Grains|Low Drifting Snow|Blowing Snow|Show Showers|Snow Blowing Snow Mist" ng-switch-when-separator="|" class="icon flurries"><div class="cloud"></div><div class="snow"><div class="flake"></div><div class="flake2"></div></div></div>
             <div ng-switch-when="Ice Crystals">Ice Crystals</div>
             <div ng-switch-when="Ice Pellets">Ice Pellets</div>
             <div ng-switch-when="Hail">Hail</div>
@@ -19,16 +17,11 @@
             <div ng-switch-when="Spray">Spray</div>
             <div ng-switch-when="Dust Whirls">Dust Whirls</div>
             <div ng-switch-when="Sandstorm">Sandstorm</div>
-            <div ng-switch-when="Low Drifting Snow">Low Drifting Snow</div>
             <div ng-switch-when="Low Drifting Widespread Dust">Low Drifting Widespread Dust</div>
             <div ng-switch-when="Low Drifting Sand">Low Drifting Sand</div>
-            <div ng-switch-when="Blowing Snow">Blowing Snow</div>
             <div ng-switch-when="Blowing Widespread Dust">Blowing Widespread Dust</div>
             <div ng-switch-when="Blowing Sand">Blowing Sand</div>
             <div ng-switch-when="Rain Mist">Rain Mist</div>
-            <div ng-switch-when="Rain Showers">Rain Showers</div>
-            <div ng-switch-when="Snow Showers">Snow Showers</div>
-            <div ng-switch-when="Snow Blowing Snow Mist">Snow Blowing Snow Mist</div>
             <div ng-switch-when="Ice Pellet Showers">Ice Pellet Showers</div>
             <div ng-switch-when="Hail Showers">Hail Showers</div>
             <div ng-switch-when="Small Hail Showers">Small Hail Showers</div>
@@ -39,13 +32,12 @@
             <div ng-switch-when="Thunderstorms with Hail">Thunderstorms with Hail</div>
             <div ng-switch-when="Thunderstorms with Small Hail">Thunderstorms with Small Hail</div>
             <div ng-switch-when="Freezing Drizzle">Freezing Drizzle</div>
-            <div ng-switch-when="Freezing Rain">Freezing Rain</div>
             <div ng-switch-when="Freezing Fog">Freezing Fog</div>
             <div ng-switch-when="Shallow Fog">Shallow Fog</div>
             <div ng-switch-when="Partial Fog">Partial Fog</div>
             <div ng-switch-when="Overcast">Overcast</div>
-            <div ng-switch-when="Clear">Clear</div>
-            <div ng-switch-when="Partly Cloudy">Partly Cloudy</div>
+            <div ng-switch-when="Clear" class="icon sunny"><div class="sun"><div class="rays"></div></div></div>
+            <div ng-switch-when="Partly Cloudy" class="icon cloudy"><div class="cloud"></div></div>
             <div ng-switch-when="Mostly Cloudy">Mostly Cloudy</div>
             <div ng-switch-when="Scattered Clouds">Scattered Clouds</div>
             <div ng-switch-when="Small Hail">Small Hail</div>
