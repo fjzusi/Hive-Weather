@@ -7,6 +7,7 @@
             <div ng-switch-when="Thunderstorm|Thunderstorms and Rain|Thunderstorms and Snow|Thunderstorms and Ice Pellets|Thunderstorms with Hail|Thunderstorms with Small Hail" ng-switch-when-separator="|" class="icon thunder-storm"><div class="cloud"></div><div class="lightning"><div class="bolt"></div><div class="bolt"></div></div></div>
             <div ng-switch-when="Partial Fog|Shallow Fog|Fog|Mostly Cloudy|Overcast|Haze|Mist|Fog Patches|Smoke" ng-switch-when-separator="|" class="icon cloudy"><div class="cloud"></div><div class="cloud2"></div></div>
             <div ng-switch-when="Scattered Clouds|Partly Cloudy" ng-switch-when-separator="|" class="icon partial-cloud"><div class="cloud"></div><div class="sun"><div class="rays"></div></div></div>
+            <!--
             <div ng-switch-when="Ice Crystals">Ice Crystals</div>
             <div ng-switch-when="Ice Pellets">Ice Pellets</div>
             <div ng-switch-when="Hail">Hail</div>
@@ -30,7 +31,8 @@
             <div ng-switch-when="Funnel Cloud">Funnel Cloud</div>
             <div ng-switch-when="Unknown Precipitation">Unknown Precipitation</div>
             <div ng-switch-when="Unknown">Unknown</div>
-            <div ng-switch-default>Unknown</div>
+            -->
+            <div ng-switch-default class="icon unknown"><img class="img-responsive" src="/Hive-Weather/img/unknown.svg" alt="Unknown"/></div>
         </div>
     </div>
 </div>

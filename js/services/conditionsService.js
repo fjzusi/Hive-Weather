@@ -6,7 +6,7 @@ function conditionsService($rootScope, $http, apiUrl) {
         "temperature_string": "10000 F",
         "local_time_rfc822": "600 Hours",
 
-        "weather": "Drizzle"
+        "weather": "asdfasdf"
     };
 
     this.setConditions = function(link) {
