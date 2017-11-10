@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { ConditionsService } from './services/conditions.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -10,7 +12,11 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    ConditionsService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

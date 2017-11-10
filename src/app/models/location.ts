@@ -1,4 +1,4 @@
-export class Location {
+export class WU_Location {
   full: string;
   city: string;
   state: string;
@@ -6,7 +6,7 @@ export class Location {
   country: string;
   country_iso3166: string;
   zip: string;
-  latitude: float;
-  longitude: float;
-  elevation: float;
+  latitude: number;
+  longitude: number;
+  elevation: number;
 }
