@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
-import { environment } from './environment';
+import { environment } from '../../environments/environment';
 import { WU_Condition } from '../models/condition';
 
 @Injectable()
