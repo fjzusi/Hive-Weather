@@ -1,0 +1,28 @@
+//out:  styles.css, sourcemap: false, compress: true
+
+@sky-color: #C5FFFD;
+@sun-color: #F2AF29;
+@night-color: #2B4162;
+@cloud-color: #FFFFFF;
+@storm-color: #AF9AB2;
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 100px;
+    background-color: @night-color;
+    color: @cloud-color;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    padding-bottom: 10px;
+    width: 100%;
+    border-top: 1px solid @night-color;
+    background-color: white;
+}
