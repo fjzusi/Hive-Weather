@@ -1,17 +1,17 @@
 <div class="row justify-content-end">
   <div class="search-container col-12 col-sm-5 text-right input-group">
     <input
+      id="typeahead-focus"
       type="text"
-      class="form-control search-field"
-      placeholder="Your Location"
-      [(ngModel)]="searchTerm"
-      [source]="searchResults"
-      auto-complete
-      open-on-focus="false"
-      ng-keypress="search($event)"
-      >
+      class="form-control"
+      [(ngModel)]="model"
+      [ngbTypeahead]="search"
+      (focus)="focus$.next($event.target.value)"
+      (click)="click$.next($event.target.value)"
+      #instance="ngbTypeahead"
+    />
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button">Search</button>
+      <button class="btn" type="button" ng-onclick="searchClick()">Search</button>
     </div>
   </div>
 </div>
