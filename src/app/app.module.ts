@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { ConditionsService } from './services/conditions.service';
+import { AlmanacService, AstronomyService, AutocompleteService, ConditionsService, ForecastService, GeolookupService } from './services';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,12 @@ import { ConditionsService } from './services/conditions.service';
     BrowserModule
   ],
   providers: [
-    ConditionsService
+    AlmanacService,
+    AstronomyService,
+    AutocompleteService,
+    ConditionsService,
+    ForecastService,
+    GeolookupService
   ],
   bootstrap: [
     AppComponent
