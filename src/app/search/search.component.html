@@ -1,6 +1,15 @@
 <div class="row justify-content-end">
   <div class="search-container col-12 col-sm-5 text-right input-group">
-    <input type="text" [(ngModel)]="searchTerm" [source]="searchResults" class="form-control search-field" placeholder="Your Location" auto-complete>
+    <input
+      type="text"
+      class="form-control search-field"
+      placeholder="Your Location"
+      [(ngModel)]="searchTerm"
+      [source]="searchResults"
+      auto-complete
+      open-on-focus="false"
+      ng-keypress="search($event)"
+      >
     <div class="input-group-append">
       <button class="btn btn-outline-secondary" type="button">Search</button>
     </div>

@@ -16,6 +16,10 @@ export class SearchComponent implements OnInit {
     this.searchResults = new Array<WU_Autocomplete_Result>();
   }
 
+  search($event) {
+    console.log("thing");
+  }
+
   ngOnInit() {
   }
 
