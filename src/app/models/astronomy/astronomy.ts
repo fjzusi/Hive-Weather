@@ -1,4 +1,4 @@
-import { WU_Response } from './response';
+import { WU_Response } from '../response';
 import { WU_Moon_Phase } from './moonphase';
 import { WU_Sun_Phase } from './sunphase';
 

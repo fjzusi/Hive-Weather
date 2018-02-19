@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 import { environment } from '../../environments/environment';
-import { WU_Astronomy } from '../models/astronomy';
+import { WU_Astronomy } from '../models/astronomy/astronomy';
 
 @Injectable()
 export class AstronomyService {

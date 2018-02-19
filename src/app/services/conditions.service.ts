@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 import { environment } from '../../environments/environment';
-import { WU_Condition } from '../models/condition';
+import { WU_Condition } from '../models/condition/condition';
 
 @Injectable()
 export class ConditionsService {

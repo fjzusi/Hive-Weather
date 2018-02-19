@@ -1,4 +1,4 @@
-import { WU_Response } from './response';
+import { WU_Response } from '../response';
 import { WU_Observation } from './observation';
 
 export class WU_Condition {

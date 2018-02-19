@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 import { environment } from '../../environments/environment';
-import { WU_Almanac_Response } from '../models/almanacresponse';
+import { WU_Almanac_Response } from '../models/almanac/almanacresponse';
 
 @Injectable()
 export class AlmanacService {
