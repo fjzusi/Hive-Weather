@@ -13,14 +13,14 @@ export class ConditionsService {
   constructor(private http: HttpClient) { }
 
   conditionsFromLink(link: string): Observable<WU_Condition> {
-    var url = `${environment.weatherApi}conditions${link}.json`;
+    var url = `${environment.weatherApi}/conditions${link}.json`;
 
     return this.getConditions(url);
   }
 
   conditionsFromCityState(city: string, state: string): Observable<WU_Condition> {
     city = city.replace(/ /gi, "_");
-    var url = `${environment.weatherApi}conditions/q/${state}/${city}.json`;
+    var url = `${environment.weatherApi}/conditions/q/${state}/${city}.json`;
 
     return this.getConditions(url);
   }
