@@ -2,11 +2,11 @@ export class WU_Autocomplete_Result {
   name: string;
   type: string;
   c: string;
-  zmw: number;
+  zmw: string;
   tz: string;
   tzs: string;
   l: string;
-  ll: number;
-  lat: number;
-  lon: number;
+  ll: string;
+  lat: string;
+  lon: string;
 }

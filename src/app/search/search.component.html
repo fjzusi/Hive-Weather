@@ -7,10 +7,12 @@
       [class.is-invalid]="searchFailed"
       [(ngModel)]="model"
       [ngbTypeahead]="search"
+      [resultFormatter]="formatMatches"
+      [inputFormatter]="formatMatches"
       placeholder="City/State Search"
     />
     <div class="input-group-append">
-      <button class="btn" type="button" ng-onclick="searchClick()">Search</button>
+      <button class="btn" type="button" (click)="searchClick()">Search</button>
     </div>
   </div>
 </div>

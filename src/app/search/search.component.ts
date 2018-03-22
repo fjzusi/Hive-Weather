@@ -11,6 +11,7 @@ import 'rxjs/add/operator/merge';
 
 import { AutocompleteService } from '../services/autocomplete.service';
 import { WU_Autocomplete_Result } from '../models/autocomplete/autocompleteresult';
+import { WU_Autocomplete } from '../models/autocomplete/autocompleteresponse';
 
 @Component({
   selector: 'app-search',
@@ -25,6 +26,8 @@ export class SearchComponent {
 
   constructor (private autoCompleteService: AutocompleteService) {}
 
+  formatMatches = (value: any) => value.name || '';
+
   search = (text$: Observable<string>) =>
     text$
       .debounceTime(300)
@@ -33,10 +36,26 @@ export class SearchComponent {
       .switchMap(query =>
         this.autoCompleteService.autocomplete(query)
           .do(() => this.searchFailed = false)
-          .catch(() => {
+          .catch((err) => {
             this.searchFailed = true;
             return of([]);
           }))
       .do(() => this.searching = false)
       .merge(this.hideSearchingWhenUnsubscribed);
+
+    private extractSearchResults(response: WU_Autocomplete) {
+      return response.RESULTS;
+    }
+
+    searchClick() {
+      this.autoCompleteService.autocomplete("alabama")
+        .subscribe(
+          res => {
+            console.log(res);
+          },
+          err => {
+            console.log(err);
+          }
+        );
+    }
 }
