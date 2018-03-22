@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
 
 import { environment } from '../../environments/environment';
 import { WU_Autocomplete } from '../models/autocomplete/autocompleteresponse';

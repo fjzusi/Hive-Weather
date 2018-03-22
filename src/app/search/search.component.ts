@@ -8,6 +8,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/merge';
+import 'rxjs/add/operator/map';
 
 import { AutocompleteService } from '../services/autocomplete.service';
 import { WU_Autocomplete_Result } from '../models/autocomplete/autocompleteresult';
@@ -36,6 +37,7 @@ export class SearchComponent {
       .switchMap(query =>
         this.autoCompleteService.autocomplete(query)
           .do(() => this.searchFailed = false)
+          .map(result => result.RESULTS)
           .catch((err) => {
             this.searchFailed = true;
             return of([]);
