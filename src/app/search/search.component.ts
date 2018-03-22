@@ -48,16 +48,4 @@ export class SearchComponent {
     private extractSearchResults(response: WU_Autocomplete) {
       return response.RESULTS;
     }
-
-    searchClick() {
-      this.autoCompleteService.autocomplete("alabama")
-        .subscribe(
-          res => {
-            console.log(res);
-          },
-          err => {
-            console.log(err);
-          }
-        );
-    }
 }
