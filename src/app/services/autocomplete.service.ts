@@ -14,7 +14,7 @@ export class AutocompleteService {
 
   autocomplete(query: string): Observable<WU_Autocomplete> {
     var url = `${environment.autoCompleteApi}/aq?query=${query}`;
-    return this.http.get<WU_Autocomplete>(url);
+    return this.http.jsonp<WU_Autocomplete>(url, 'cb');
   }
 
 }
