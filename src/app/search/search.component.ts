@@ -11,7 +11,6 @@ import 'rxjs/add/operator/merge';
 import 'rxjs/add/operator/map';
 
 import { AutocompleteService } from '../services/autocomplete.service';
-import { WU_Autocomplete_Result } from '../models/autocomplete/autocompleteresult';
 import { WU_Autocomplete } from '../models/autocomplete/autocompleteresponse';
 
 @Component({
